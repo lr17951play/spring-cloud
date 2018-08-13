@@ -3,6 +3,7 @@
 
 # Log file
 *.log
+*.log.**
 
 # BlueJ files
 *.ctxt
@@ -27,3 +28,11 @@ hs_err_pid*
 
 # others
 .gitignore
+*.gitignore
+
+cloud-gateway/src/test/java/com/lirui/cloud/gateway/CloudGatewayApplicationTests.java
+cloud-eureka/src/test/java/com/lirui/cloud/CloudApplicationTests.java
+cloud-config/src/test/java/com/lirui/cloud/config/CloudConfigApplicationTests.java
+cloud-authorization/src/test/java/com/lirui/cloud/authorization/CloudAuthorizationApplicationTests.java
+cloud-api/src/test/java/com/lirui/cloud/CloudApiApplicationTests.java
+cloud-api2/src/test/java/com/lirui/cloud/api2/CloudApi2ApplicationTests.java

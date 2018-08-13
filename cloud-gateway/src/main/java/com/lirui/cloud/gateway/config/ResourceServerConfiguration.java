@@ -11,9 +11,6 @@ import org.springframework.security.oauth2.provider.token.ResourceServerTokenSer
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
-import org.springframework.security.web.util.matcher.RequestMatcher;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * 注册资源配置服务
@@ -31,20 +28,9 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.requestMatcher(new OAuthRequestedMatcher())
-                .authorizeRequests()
-                .antMatchers("/auth/**").permitAll()
-                .anyRequest().authenticated();
-    }
-
-    private static class OAuthRequestedMatcher implements RequestMatcher {
-        public boolean matches(HttpServletRequest request) {
-            String auth = request.getHeader("Authorization");
-            // Determine if the client request contained an OAuth Authorization
-            boolean haveOauth2Token = (auth != null) && auth.startsWith("Bearer");
-            boolean haveAccessToken = request.getParameter("access_token") != null;
-            return haveOauth2Token || haveAccessToken;
-        }
+        http.authorizeRequests()
+            .antMatchers("/auth/**").permitAll()
+            .anyRequest().authenticated();
     }
 
     // ===================================================以下代码与认证服务器一致=========================================
