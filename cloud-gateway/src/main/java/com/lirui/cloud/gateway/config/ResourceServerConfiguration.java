@@ -14,7 +14,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 /**
  * 注册资源配置服务
- *
  */
 @Configuration
 @EnableResourceServer
@@ -23,14 +22,14 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
         resources.tokenServices(defaultTokenServices())
-                 .stateless(true);
+                .stateless(true);
     }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .antMatchers("/auth/**").permitAll()
-            .anyRequest().authenticated();
+                .antMatchers("/auth/**").permitAll()
+                .anyRequest().authenticated();
     }
 
     // ===================================================以下代码与认证服务器一致=========================================

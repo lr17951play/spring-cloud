@@ -22,16 +22,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-            .withUser("lirui").password("123456").roles("USER")
-            //.userDetailsService(userDetailsService)
-            //.passwordEncoder(passwordEncoder())
+                .withUser("lirui").password("123456").roles("USER")
+        //.userDetailsService(userDetailsService)
+        //.passwordEncoder(passwordEncoder())
         ;
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                //.antMatchers("/oauth/**").permitAll()
+//                .antMatchers("/oauth/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable();

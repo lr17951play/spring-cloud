@@ -15,7 +15,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 /**
  * 注册认证授权服务
- *
  */
 @Configuration
 @EnableAuthorizationServer
@@ -53,7 +52,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 //		clients.withClientDetails(clientDetails());
         clients.inMemory()
                 .withClient("normal-app")
-                .authorizedGrantTypes("authorization_code", "password","refresh_token")
+                .authorizedGrantTypes("authorization_code", "password", "refresh_token")
 //                .authorities("ROLE_CLIENT")
 //                .scopes("read", "write")
 //                .resourceIds(resourceId)

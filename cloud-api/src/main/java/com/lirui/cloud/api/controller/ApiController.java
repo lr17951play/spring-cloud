@@ -13,7 +13,7 @@ public class ApiController {
     private String env;
 
     @GetMapping("/hello")
-    public String hello () {
+    public String hello() {
         return "This is Api Service and running env is: " + this.env;
     }
 }
